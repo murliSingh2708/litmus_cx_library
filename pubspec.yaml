@@ -1,7 +1,7 @@
 name: litmus_cx_library
-description: A new Flutter plugin project.
+description: A new Flutter plugin project from LitmusWorld, which help customer give their feedback.
 version: 0.0.1
-
+homepage: https://github.com/murliSingh2708/litmus_cx_library
 
 environment:
   sdk: '>=2.18.1 <3.0.0'
