@@ -1,6 +1,6 @@
 # litmus_cx_library
 
-A new Flutter plugin project.
+Its a feedback plugin frovided by Litmusworld.
 
 ## Getting Started
 
