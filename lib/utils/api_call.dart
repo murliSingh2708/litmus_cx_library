@@ -16,9 +16,8 @@ class API {
       "is_generate_short_url": request.isGenerateShortUrl ?? "true",
       "name": request.name ?? "Some User Name",
     };
-    // ignore: prefer_is_empty
-    if (request.optionalparams!.isNotEmpty &&
-        request.optionalparams!.length > 0) {
+    Map params = request.optionalparams ?? {};
+    if (params.length > 0) {
       request.optionalparams!.forEach((key, value) {
         customBody[key] = value;
       });
