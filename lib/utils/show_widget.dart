@@ -24,9 +24,10 @@ class Widgets {
         context: context,
         builder: (context) => Dialog(
           child: Container(
+            alignment: Alignment.center,
             color: Colors.transparent,
-            height: MediaQuery.of(context).size.height * .50,
-            width: MediaQuery.of(context).size.width * .75,
+            height: (MediaQuery.of(context).size.height * .60),
+            width: MediaQuery.of(context).size.width * .85,
             child: kIsWeb
                 ? Stack(
                     children: <Widget>[
@@ -34,8 +35,8 @@ class Widgets {
                         top: 30,
                         child: WebViewX(
                           height:
-                              (MediaQuery.of(context).size.height * .50) - 30,
-                          width: MediaQuery.of(context).size.width * .75,
+                              (MediaQuery.of(context).size.height * .60) - 30,
+                          width: MediaQuery.of(context).size.width * .85,
                           ignoreAllGestures: false,
                           initialContent: url,
                           onWebViewCreated: (controller) =>
@@ -60,8 +61,8 @@ class Widgets {
                 : Stack(
                     children: <Widget>[
                       WebViewX(
-                        height: (MediaQuery.of(context).size.height * .50) - 30,
-                        width: MediaQuery.of(context).size.width * .75,
+                        height: (MediaQuery.of(context).size.height * .60),
+                        width: MediaQuery.of(context).size.width * .85,
                         ignoreAllGestures: false,
                         initialContent: url,
                         onWebViewCreated: (controller) =>
