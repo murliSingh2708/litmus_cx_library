@@ -6,7 +6,7 @@ class FeedbackRequest {
   String? userPhone;
   String? isGenerateShortUrl;
   String? name;
-  Map<String, String>? optionalparams;
+  Map<String, String>? optionalparams = {};
 
   FeedbackRequest(
       {this.appId,
