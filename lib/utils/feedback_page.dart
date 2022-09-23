@@ -18,17 +18,6 @@ class _FeedbackPageState extends State<FeedbackPage> {
   late WebViewXController webviewController;
 
   @override
-  void initState() {
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
-      const AlertDialog(
-        title: Text("WebView Loading..."),
-        content: CircularProgressIndicator(),
-      );
-    });
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Material(
       child: SafeArea(

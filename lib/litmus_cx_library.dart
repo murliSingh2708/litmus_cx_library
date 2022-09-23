@@ -5,21 +5,25 @@
 // platforms in the `pubspec.yaml` at
 // https://flutter.dev/docs/development/packages-and-plugins/developing-packages#plugin-platforms.
 
+import 'package:flutter/material.dart';
 import 'package:litmus_cx_library/RequestResponse/feedback_request.dart';
+import 'package:litmus_cx_library/requestResponse/error_response.dart';
 import 'package:litmus_cx_library/requestResponse/feedback_resounse.dart';
-import 'package:litmus_cx_library/utils/apiCall.dart';
+import 'package:litmus_cx_library/utils/api_call.dart';
+import 'package:litmus_cx_library/utils/show_widget.dart';
 
 class LitmusCxLibrary {
-  static getFeedback({
-    required String baseUrl,
-    required String appId,
-    String? userId,
-    String? userName,
-    required String userEmail,
-    Map<String, String>? customParams,
-    int? userPhone,
-    bool isGenerateShortUrl = false,
-  }) async {
+  static getFeedback(
+      {required BuildContext context,
+      required String baseUrl,
+      required String appId,
+      String? userId,
+      String? userName,
+      required String userEmail,
+      Map<String, String>? customParams,
+      int? userPhone,
+      bool isGenerateShortUrl = false,
+      bool isFullScreen = false}) async {
     FeedbackRequest request = FeedbackRequest();
     request.appId = appId;
     request.baseUrl = baseUrl;
@@ -31,7 +35,9 @@ class LitmusCxLibrary {
     request.userPhone = userPhone?.toString();
 
     var response = await API.getFeedbackApi(request);
-    print(response.data!.longUrl.toString());
-    return response;
+    if (response is FeedbackResponse) {
+      await Widgets().showWebView(context, response, isFullScreen);
+    }
+    return response.toJson();
   }
 }
