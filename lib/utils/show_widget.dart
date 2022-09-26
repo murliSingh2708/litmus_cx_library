@@ -30,10 +30,23 @@ class Widgets {
               ? SizedBox(
                   height: (MediaQuery.of(context).size.height * .70),
                   width: MediaQuery.of(context).size.width * .60,
-                  child: Stack(
+                  child: Column(
                     children: <Widget>[
-                      Positioned(
-                        top: 30,
+                      Container(
+                        alignment: Alignment.topRight,
+                        height: 30,
+                        color: !isDark ? Colors.black : Colors.white,
+                        padding: const EdgeInsets.only(top: 5, right: 10),
+                        child: GestureDetector(
+                          child: Icon(
+                            Icons.cancel,
+                            size: 20.0,
+                            color: isDark ? Colors.black : Colors.white,
+                          ),
+                          onTap: () => Navigator.of(context).pop(),
+                        ),
+                      ),
+                      Expanded(
                         child: WebViewX(
                           height:
                               (MediaQuery.of(context).size.height * .70) - 30,
@@ -43,18 +56,6 @@ class Widgets {
                           onWebViewCreated: (controller) =>
                               webviewController = controller,
                           javascriptMode: JavascriptMode.unrestricted,
-                        ),
-                      ),
-                      Positioned(
-                        top: 5,
-                        right: 10,
-                        child: GestureDetector(
-                          child: Icon(
-                            Icons.cancel,
-                            size: 20.0,
-                            color: isDark ? Colors.black : Colors.white,
-                          ),
-                          onTap: () => Navigator.of(context).pop(),
                         ),
                       ),
                     ],

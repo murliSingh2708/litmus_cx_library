@@ -21,20 +21,16 @@ class _FeedbackPageState extends State<FeedbackPage> {
     return Material(
       child: SafeArea(
         child: kIsWeb
-            ? Stack(
+            ? Column(
                 children: [
-                  Positioned(
-                    top: 30,
-                    child: WebViewX(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      initialContent: widget.url,
-                      javascriptMode: JavascriptMode.unrestricted,
+                  Container(
+                    alignment: Alignment.topRight,
+                    height: 30,
+                    padding: const EdgeInsets.only(
+                      top: 5,
+                      right: 10,
                     ),
-                  ),
-                  Positioned(
-                    top: 5,
-                    right: 10,
+                    color: !widget.isDarkMode ? Colors.black : Colors.white,
                     child: InkWell(
                       child: Icon(
                         Icons.cancel,
@@ -42,6 +38,14 @@ class _FeedbackPageState extends State<FeedbackPage> {
                         color: widget.isDarkMode ? Colors.black : Colors.white,
                       ),
                       onTap: () => Navigator.of(context).pop(),
+                    ),
+                  ),
+                  Expanded(
+                    child: WebViewX(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height - 30,
+                      initialContent: widget.url,
+                      javascriptMode: JavascriptMode.unrestricted,
                     ),
                   ),
                 ],
