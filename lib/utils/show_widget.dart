@@ -23,20 +23,18 @@ class Widgets {
       showDialog(
         context: context,
         builder: (context) => Dialog(
-          child: Container(
-            alignment: Alignment.center,
-            color: Colors.transparent,
-            height: (MediaQuery.of(context).size.height * .60),
-            width: MediaQuery.of(context).size.width * .85,
-            child: kIsWeb
-                ? Stack(
+          child: kIsWeb
+              ? SizedBox(
+                  height: (MediaQuery.of(context).size.height * .70),
+                  width: MediaQuery.of(context).size.width * .60,
+                  child: Stack(
                     children: <Widget>[
                       Positioned(
                         top: 30,
                         child: WebViewX(
                           height:
-                              (MediaQuery.of(context).size.height * .60) - 30,
-                          width: MediaQuery.of(context).size.width * .85,
+                              (MediaQuery.of(context).size.height * .70) - 30,
+                          width: MediaQuery.of(context).size.width * .60,
                           ignoreAllGestures: false,
                           initialContent: url,
                           onWebViewCreated: (controller) =>
@@ -57,12 +55,16 @@ class Widgets {
                         ),
                       ),
                     ],
-                  )
-                : Stack(
+                  ),
+                )
+              : SizedBox(
+                  height: (MediaQuery.of(context).size.height * .65),
+                  width: MediaQuery.of(context).size.width * .90,
+                  child: Stack(
                     children: <Widget>[
                       WebViewX(
-                        height: (MediaQuery.of(context).size.height * .60),
-                        width: MediaQuery.of(context).size.width * .85,
+                        height: MediaQuery.of(context).size.height * .65,
+                        width: MediaQuery.of(context).size.width * .90,
                         ignoreAllGestures: false,
                         initialContent: url,
                         onWebViewCreated: (controller) =>
@@ -95,7 +97,7 @@ class Widgets {
                       ),
                     ],
                   ),
-          ),
+                ),
         ),
       );
     }
