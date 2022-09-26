@@ -9,7 +9,7 @@ import '../RequestResponse/feedback_request.dart';
 class API {
   static getFeedbackApi(FeedbackRequest request) async {
     Map customBody = {
-      "app_id": request.appId ?? "g3wj_touchpoint",
+      "app_id": request.appId ?? "",
       "customer_id": request.customerId ?? '',
       "user_email": request.userEmail ?? '',
       "user_phone": request.userPhone ?? "9999999999",

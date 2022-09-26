@@ -372,8 +372,8 @@ class _HomePageState extends State<HomePage> {
 }
 
 class Constants {
-  static String baseUrlProduction = "https://dashboard.litmusworld.com/rateus";
-  static String baseUrlStaging = "https://staging.litmusworld.com/rateus";
-  static String baseUrlIndiaProduction =
-      "https://dashboard-india.litmusworld.com/rateus";
+  //use proper urls for servers
+  static String baseUrlProduction = "https://url";
+  static String baseUrlStaging = "https://url";
+  static String baseUrlIndiaProduction = "https://url";
 }
