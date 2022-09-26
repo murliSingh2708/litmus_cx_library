@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:litmus_cx_library/requestResponse/error_response.dart';
-import 'package:litmus_cx_library/requestResponse/feedback_resounse.dart';
+import '../requestResponse/error_response.dart';
+import '../requestResponse/feedback_resounse.dart';
 
 import '../RequestResponse/feedback_request.dart';
 

@@ -5,10 +5,9 @@ import 'package:webviewx/webviewx.dart';
 
 class FeedbackPage extends StatefulWidget {
   final String url;
-  const FeedbackPage({
-    Key? key,
-    required this.url,
-  }) : super(key: key);
+  final bool isDarkMode;
+  const FeedbackPage({Key? key, required this.url, required this.isDarkMode})
+      : super(key: key);
 
   @override
   State<FeedbackPage> createState() => _FeedbackPageState();
@@ -37,10 +36,10 @@ class _FeedbackPageState extends State<FeedbackPage> {
                     top: 5,
                     right: 10,
                     child: InkWell(
-                      child: const Icon(
+                      child: Icon(
                         Icons.cancel,
                         size: 20.0,
-                        color: Colors.black,
+                        color: widget.isDarkMode ? Colors.black : Colors.white,
                       ),
                       onTap: () => Navigator.of(context).pop(),
                     ),
@@ -61,10 +60,10 @@ class _FeedbackPageState extends State<FeedbackPage> {
                     top: 10,
                     right: 10,
                     child: InkWell(
-                      child: const Icon(
+                      child: Icon(
                         Icons.cancel,
                         size: 20.0,
-                        color: Colors.black,
+                        color: widget.isDarkMode ? Colors.black : Colors.white,
                       ),
                       onTap: () => Navigator.of(context).pop(),
                     ),
@@ -73,10 +72,10 @@ class _FeedbackPageState extends State<FeedbackPage> {
                     top: 10,
                     left: 10,
                     child: InkWell(
-                      child: const Icon(
+                      child: Icon(
                         Icons.arrow_back_ios,
                         size: 20.0,
-                        color: Colors.black,
+                        color: widget.isDarkMode ? Colors.black : Colors.white,
                       ),
                       onTap: () => webviewController.goBack(),
                     ),

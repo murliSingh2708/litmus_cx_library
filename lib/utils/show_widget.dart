@@ -1,23 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:litmus_cx_library/requestResponse/feedback_resounse.dart';
-import 'package:litmus_cx_library/utils/feedback_page.dart';
+import '../requestResponse/feedback_resounse.dart';
+import 'feedback_page.dart';
 import 'package:webviewx/webviewx.dart';
 
 class Widgets {
   late WebViewXController webviewController;
 
-  showWebView(
-      BuildContext context, FeedbackResponse result, bool isFullScreen) {
+  showWebView(BuildContext context, FeedbackResponse result, bool isFullScreen,
+      bool isDarkMode) {
     Uri url = Uri.parse(result.data!.longUrl ?? '');
-    showInFullScreen(context, isFullScreen, result.data!.shortUrl.toString());
+    showInFullScreen(
+        context, isFullScreen, result.data!.shortUrl.toString(), isDarkMode);
   }
 
-  showInFullScreen(BuildContext context, bool fullScreen, String url) {
+  showInFullScreen(
+      BuildContext context, bool fullScreen, String url, bool isDark) {
     if (fullScreen) {
       Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => FeedbackPage(
                 url: url,
+                isDarkMode: isDark,
               )));
     } else {
       showDialog(
@@ -46,10 +49,10 @@ class Widgets {
                         top: 5,
                         right: 10,
                         child: GestureDetector(
-                          child: const Icon(
+                          child: Icon(
                             Icons.cancel,
                             size: 20.0,
-                            color: Colors.black,
+                            color: isDark ? Colors.black : Colors.white,
                           ),
                           onTap: () => Navigator.of(context).pop(),
                         ),
@@ -75,10 +78,10 @@ class Widgets {
                         top: 10,
                         right: 10,
                         child: GestureDetector(
-                          child: const Icon(
+                          child: Icon(
                             Icons.cancel,
                             size: 20.0,
-                            color: Colors.black,
+                            color: isDark ? Colors.black : Colors.white,
                           ),
                           onTap: () => Navigator.of(context).pop(),
                         ),
@@ -87,10 +90,10 @@ class Widgets {
                         top: 10,
                         left: 10,
                         child: GestureDetector(
-                          child: const Icon(
+                          child: Icon(
                             Icons.arrow_back_ios,
                             size: 20.0,
-                            color: Colors.black,
+                            color: isDark ? Colors.black : Colors.white,
                           ),
                           onTap: () => webviewController.goBack(),
                         ),
