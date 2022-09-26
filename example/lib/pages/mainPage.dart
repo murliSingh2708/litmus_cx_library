@@ -19,9 +19,9 @@ class _HomePageState extends State<HomePage> {
   TextEditingController valueController = TextEditingController();
   bool isFullScreen = false;
   Map servers = {
-    "Staging": "https://staging.litmusworld.com/rateus",
-    "Production": "https://dashboard.litmusworld.com/rateus",
-    "Production India": "https://dashboard-india.litmusworld.com/rateus",
+    "Staging": "url",
+    "Production": "url",
+    "Production India": "url",
   };
   @override
   Widget build(BuildContext context) {
